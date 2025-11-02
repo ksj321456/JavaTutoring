@@ -46,7 +46,7 @@ public class NumberExpectationGame {
         }
     }
 
-    public void checkWinner() {
+    public boolean checkWinner() {
         final int minCount = findMinCount();
 
         // 최소값(가장 못 맞춘 사람) 제거
@@ -78,9 +78,9 @@ public class NumberExpectationGame {
 
         if (players.length == 1) {
             System.out.println("최종 패자는 " + players[0].getName() + "입니다.");
-            System.exit(0);
+            return true;
         }
-
+        return false;
     }
 
     // 숫자를 제일 적게 맞춘 사람이 맞춘 숫자 갯수를 리턴하는 메소드
@@ -103,7 +103,7 @@ public class NumberExpectationGame {
             getEnterKey();
             randomNumbers();
             countMatchNumber();
-            checkWinner();
+            if (checkWinner()) return;
         }
     }
 }
