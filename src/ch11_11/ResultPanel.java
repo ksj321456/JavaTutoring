@@ -14,7 +14,7 @@ class ResultPanel extends JPanel {
         add(resultLabel, BorderLayout.CENTER);
     }
 
-    public void setResult(String text) {
-        resultLabel.setText("계산 결과: " + text);
+    public void setResult(String result) {
+        resultLabel.setText("계산 결과: " + result);
     }
 }
