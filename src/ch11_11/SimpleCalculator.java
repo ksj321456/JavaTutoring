@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class SimpleCalculator extends JFrame {
@@ -22,7 +24,7 @@ public class SimpleCalculator extends JFrame {
         resultPanel = new ResultPanel();
         add(resultPanel, BorderLayout.SOUTH);
 
-        ButtonPanel buttonPanel = new ButtonPanel(new ButtonActionListener(displayPanel, resultPanel));
+        ButtonPanel buttonPanel = new ButtonPanel(new CalculatorInputListener(displayPanel, resultPanel));
         add(buttonPanel, BorderLayout.CENTER);
 
         setSize(350, 400);

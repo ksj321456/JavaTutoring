@@ -21,6 +21,10 @@ public class DisplayPanel extends JPanel {
         add(display, BorderLayout.CENTER);
     }
 
+    public JTextField getDisplay() {
+        return display;
+    }
+
     public void setText(String text) {
         display.setText(text);
     }

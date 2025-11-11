@@ -5,6 +5,7 @@ import java.awt.*;
 import java.util.Random;
 
 public class ColorBlock extends JLabel {
+
     private static final int SIZE = 80;
 
     public ColorBlock(int x, int y) {
@@ -14,7 +15,9 @@ public class ColorBlock extends JLabel {
 
         // 마우스 리스너 등록
         MyMouseListener ml = new MyMouseListener(this);
+
         addMouseListener(ml);
+
         addMouseMotionListener(ml);
     }
 
