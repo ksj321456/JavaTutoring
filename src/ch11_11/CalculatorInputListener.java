@@ -15,9 +15,7 @@ public class CalculatorInputListener extends KeyAdapter implements ActionListene
         this.displayPanel = displayPanel;
         this.resultPanel = resultPanel;
 
-        // DisplayPanel의 JTextField에 포커스를 주고 키 입력을 받도록 설정
         JTextField field = displayPanel.getDisplay();
-        field.setFocusable(true);
         field.addKeyListener(this);
     }
 
@@ -31,7 +29,7 @@ public class CalculatorInputListener extends KeyAdapter implements ActionListene
     public void keyTyped(KeyEvent e) {
         char keyChar = e.getKeyChar();
 
-        if (Character.isDigit(keyChar) || "+-x*/.%".indexOf(keyChar) != -1) {
+        if (Character.isDigit(keyChar) || "+-x/.%".indexOf(keyChar) != -1) {
             processInput(String.valueOf(keyChar));
         } else if (keyChar == '\b') { // 백스페이스
             backspace();
@@ -41,10 +39,15 @@ public class CalculatorInputListener extends KeyAdapter implements ActionListene
     }
 
     private void processInput(String input) {
+
+        // display에 숫자 출력
         if (input.matches("[0-9]") || input.equals(".")) {
             currentInput += input;
             displayPanel.setText(currentInput);
-        } else if (input.matches("[+\\-x*/%]")) {
+        }
+
+        // 연산자 입력 받음
+        else if (input.matches("[+\\-x*/%]")) {
             if (operator.isEmpty()) {
                 operator = input;
                 currentInput += input;
