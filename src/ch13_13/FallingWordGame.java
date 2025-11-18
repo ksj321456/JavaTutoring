@@ -111,8 +111,4 @@ public class FallingWordGame extends JFrame {
         resultLabel.setText(" ");
     }
 
-    public static void main(String[] args) {
-        new FallingWordGame();
-    }
-
 }
